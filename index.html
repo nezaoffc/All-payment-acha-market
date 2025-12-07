@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>💰 ALLPAYMENT MOBILE | ACHA MARKET</title>
+    
+    <!-- Mobile Optimized -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --neon-blue: #00f3ff;
+            --electric-blue: #0066ff;
+            --cyber-purple: #8a2be2;
+            --matrix-green: #00ff41;
+            --dark-space: #0a0e17;
+            --starlight: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        html {
+            font-size: 14px;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--dark-space);
+            color: var(--starlight);
+            min-height: 100vh;
+            overflow-x: hidden;
+            padding-bottom: 80px;
+        }
+        
+        /* Mobile Header */
+        .mobile-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem;
+            background: rgba(10, 14, 23, 0.98);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 243, 255, 0.2);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .mobile-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .mobile-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--electric-blue), var(--neon-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: white;
+        }
+        
+        .mobile-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--electric-blue), var(--neon-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .mobile-menu-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: rgba(0, 102, 255, 0.1);
+            border: 1px solid rgba(0, 102, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--neon-blue);
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        
+        /* Mobile Navigation */
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 300px;
+            height: 100%;
+            background: rgba(10, 14, 23, 0.98);
+            backdrop-filter: blur(30px);
+            z-index: 1001;
+            padding: 2rem 1.5rem;
+            transition: right 0.3s ease;
+            border-left: 1px solid rgba(0, 243, 255, 0.2);
+            overflow-y: auto;
+        }
+        
+        .mobile-nav.active {
+            right: 0;
+        }
+        
+        .nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(0, 243, 255, 0.2);
+        }
+        
+        .close-nav {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(255, 0, 0, 0.1);
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ff4444;
+            cursor: pointer;
+        }
+        
+        .nav-items {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+        
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: 12px;
+            color: var(--starlight);
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-item:hover {
+            background: rgba(0, 102, 255, 0.2);
+            transform: translateX(5px);
+        }
+        
+        .nav-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(0, 102, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--neon-blue);
+        }
+        
+        /* Mobile Content */
+        .mobile-content {
+            padding: 80px 1rem 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        /* Welcome Section */
+        .welcome-section {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.1), rgba(0, 243, 255, 0.1));
+            border-radius: 20px;
+            border: 1px solid rgba(0, 243, 255, 0.2);
+        }
+        
+        .welcome-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--neon-blue), var(--matrix-green));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .welcome-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+        
+        /* Mobile Payment Cards */
+        .payment-slider {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .mobile-payment-card {
+            background: rgba(30, 37, 63, 0.8);
+            border-radius: 20px;
+            padding: 1.5rem;
+            border: 1px solid rgba(0, 102, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            background: linear-gradient(135deg, var(--electric-blue), var(--neon-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+        
+        .card-title {
+            flex: 1;
+        }
+        
+        .method-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        
+        .method-status {
+            font-size: 0.8rem;
+            color: var(--matrix-green);
+            background: rgba(0, 255, 65, 0.1);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            display: inline-block;
+            margin-top: 0.3rem;
+        }
+        
+        .card-details {
+            margin: 1rem 0;
+        }
+        
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .detail-item:last-child {
+            border-bottom: none;
+        }
+        
+        .detail-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .detail-value {
+            font-weight: 600;
+            color: var(--neon-blue);
+            font-size: 1.1rem;
+        }
+        
+        .card-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+        }
+        
+        .mobile-btn {
+            padding: 0.8rem;
+            border-radius: 12px;
+            border: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--electric-blue), var(--neon-blue));
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: rgba(0, 102, 255, 0.1);
+            border: 1px solid var(--electric-blue);
+            color: var(--electric-blue);
+        }
+        
+        .btn-primary:active, .btn-secondary:active {
+            transform: scale(0.95);
+        }
+        
+        /* QRIS Mobile */
+        .qris-section {
+            background: rgba(30, 37, 63, 0.8);
+            border-radius: 20px;
+            padding: 1.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(0, 243, 255, 0.3);
+        }
+        
+        .qris-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--neon-blue);
+        }
+        
+        .qris-container {
+            display: inline-block;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            border: 2px solid var(--neon-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .qris-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+        
+        /* Important Notice */
+        .notice-section {
+            background: rgba(255, 170, 0, 0.1);
+            border: 1px solid rgba(255, 170, 0, 0.3);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .notice-header {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .notice-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(255, 170, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffaa00;
+            font-size: 1.2rem;
+        }
+        
+        .notice-title {
+            font-weight: 700;
+            color: #ffaa00;
+            font-size: 1.2rem;
+        }
+        
+        .notice-text {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+        
+        .highlight {
+            color: var(--neon-blue);
+            font-weight: 600;
+        }
+        
+        /* Mobile Footer */
+        .mobile-footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem;
+            background: rgba(10, 14, 23, 0.98);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(0, 243, 255, 0.2);
+            z-index: 1000;
+        }
+        
+        .footer-nav {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.5rem;
+        }
+        
+        .footer-nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 0.5rem;
+            border-radius: 10px;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-nav-item.active {
+            background: rgba(0, 102, 255, 0.2);
+            color: var(--neon-blue);
+        }
+        
+        .footer-icon {
+            font-size: 1.2rem;
+        }
+        
+        /* Toast Notification Mobile */
+        .mobile-toast {
+            position: fixed;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: linear-gradient(135deg, var(--electric-blue), var(--neon-blue));
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 102, 255, 0.3);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            max-width: 90%;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+        
+        /* Swipe Indicator */
+        .swipe-hint {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.8rem;
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        /* Touch Feedback */
+        .touch-feedback:active {
+            opacity: 0.7;
+        }
+        
+        /* Prevent Text Selection */
+        .no-select {
+            -webkit-user-select: none;
+            user-select: none;
+        }
+    </style>
+</head>
+<body class="no-select">
+    <!-- Mobile Header -->
+    <header class="mobile-header">
+        <div class="mobile-brand">
+            <div class="mobile-logo">
+                <i class="fas fa-bolt"></i>
+            </div>
+            <div class="mobile-title">ALLPAYMENT</div>
+        </div>
+        <div class="mobile-menu-btn" id="menuBtn">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" id="mobileNav">
+        <div class="nav-header">
+            <h3 style="color: var(--neon-blue);">Menu</h3>
+            <div class="close-nav" id="closeNav">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+        
+        <div class="nav-items">
+            <a href="#payments" class="nav-item touch-feedback" onclick="closeNav()">
+                <div class="nav-icon">
+                    <i class="fas fa-credit-card"></i>
+                </div>
+                <div>
+                    <div style="font-weight: 600;">Payments</div>
+                    <div style="font-size: 0.8rem; opacity: 0.7;">All payment methods</div>
+                </div>
+            </a>
+            
+            <a href="#qris" class="nav-item touch-feedback" onclick="closeNav()">
+                <div class="nav-icon">
+                    <i class="fas fa-qrcode"></i>
+                </div>
+                <div>
+                    <div style="font-weight: 600;">QRIS</div>
+                    <div style="font-size: 0.8rem; opacity: 0.7;">Quick scan payment</div>
+                </div>
+            </a>
+            
+            <a href="#notice" class="nav-item touch-feedback" onclick="closeNav()">
+                <div class="nav-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div>
+                    <div style="font-weight: 600;">Important</div>
+                    <div style="font-size: 0.8rem; opacity: 0.7;">Read before pay</div>
+                </div>
+            </a>
+            
+            <!-- TAMBAHAN: Product Panel Acha -->
+            <div class="nav-item touch-feedback" onclick="goToProductPanel()">
+                <div class="nav-icon" style="background: rgba(138, 43, 226, 0.1); color: var(--cyber-purple);">
+                    <i class="fas fa-tachometer-alt"></i>
+                </div>
+                <div>
+                    <div style="font-weight: 600;">Product Panel</div>
+                    <div style="font-size: 0.8rem; opacity: 0.7;">Acha Panel Dashboard</div>
+                </div>
+            </div>
+            
+            <!-- TAMBAHAN: All Product Digital -->
+            <div class="nav-item touch-feedback" onclick="goToDigitalProducts()">
+                <div class="nav-icon" style="background: rgba(0, 255, 65, 0.1); color: var(--matrix-green);">
+                    <i class="fas fa-boxes"></i>
+                </div>
+                <div>
+                    <div style="font-weight: 600;">Digital Products</div>
+                    <div style="font-size: 0.8rem; opacity: 0.7;">All digital products</div>
+                </div>
+            </div>
+            
+            <div class="nav-item touch-feedback" onclick="copyAllInfo()">
+                <div class="nav-icon">
+                    <i class="fas fa-copy"></i>
+                </div>
+                <div>
+                    <div style="font-weight: 600;">Copy All Info</div>
+                    <div style="font-size: 0.8rem; opacity: 0.7;">Copy all payment data</div>
+                </div>
+            </div>
+            
+            <div class="nav-item touch-feedback" onclick="shareApp()">
+                <div class="nav-icon">
+                    <i class="fas fa-share-alt"></i>
+                </div>
+                <div>
+                    <div style="font-weight: 600;">Share</div>
+                    <div style="font-size: 0.8rem; opacity: 0.7;">Share payment link</div>
+                </div>
+            </div>
+        </div>
+        
+        <div style="margin-top: 2rem; padding: 1rem; background: rgba(0, 102, 255, 0.1); border-radius: 12px;">
+            <div style="font-size: 0.9rem; color: var(--neon-blue); margin-bottom: 0.5rem;">
+                <i class="fas fa-user"></i> ACHA MARKET
+            </div>
+            <div style="font-size: 0.8rem; opacity: 0.8;">
+                ALL PAYMENT ACHA MARKET
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Content -->
+    <main class="mobile-content">
+        <!-- Welcome Section -->
+        <section class="welcome-section">
+            <h1 class="welcome-title">WELCOME TO PAY</h1>
+            <p class="welcome-subtitle">ACHA MARKET Payment Gateway</p>
+            <div style="margin-top: 1rem; font-size: 0.9rem; color: rgba(255, 255, 255, 0.7);">
+                <i class="fas fa-mobile-alt"></i> Mobile Optimized • <i class="fas fa-bolt"></i> Fast • <i class="fas fa-shield-alt"></i> Secure
+            </div>
+        </section>
+
+        <!-- Payment Methods -->
+        <section id="payments" class="payment-slider">
+            <!-- DANA Card -->
+            <div class="mobile-payment-card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: linear-gradient(135deg, #00d1ff, #0066ff);">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <div class="card-title">
+                        <div class="method-name">DANA</div>
+                        <div class="method-status">ACTIVE</div>
+                    </div>
+                </div>
+                
+                <div class="card-details">
+                    <div class="detail-item">
+                        <div class="detail-label">
+                            <i class="fas fa-phone"></i>
+                            Phone
+                        </div>
+                        <div class="detail-value">083171156990</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">
+                            <i class="fas fa-user"></i>
+                            Name
+                        </div>
+                        <div class="detail-value">Su*****</div>
+                    </div>
+                </div>
+                
+                <div class="card-actions">
+                    <button class="mobile-btn btn-secondary touch-feedback" onclick="copyText('083171156990')">
+                        <i class="fas fa-copy"></i> Copy
+                    </button>
+                    <button class="mobile-btn btn-primary touch-feedback" onclick="shareText('DANA: 083171156990 (Su*****)')">
+                        <i class="fas fa-share-alt"></i> Share
+                    </button>
+                </div>
+            </div>
+
+            <!-- GOPAY Card -->
+            <div class="mobile-payment-card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: linear-gradient(135deg, #00aa5b, #00d1ff);">
+                        <i class="fab fa-google-wallet"></i>
+                    </div>
+                    <div class="card-title">
+                        <div class="method-name">GOPAY</div>
+                        <div class="method-status">ACTIVE</div>
+                    </div>
+                </div>
+                
+                <div class="card-details">
+                    <div class="detail-item">
+                        <div class="detail-label">
+                            <i class="fas fa-phone"></i>
+                            Phone
+                        </div>
+                        <div class="detail-value">085789458403</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">
+                            <i class="fas fa-user"></i>
+                            Name
+                        </div>
+                        <div class="detail-value">N*** ***</div>
+                    </div>
+                </div>
+                
+                <div class="card-actions">
+                    <button class="mobile-btn btn-secondary touch-feedback" onclick="copyText('085789458403')">
+                        <i class="fas fa-copy"></i> Copy
+                    </button>
+                    <button class="mobile-btn btn-primary touch-feedback" onclick="shareText('GOPAY: 085789458403 (N*** ***)')">
+                        <i class="fas fa-share-alt"></i> Share
+                    </button>
+                </div>
+            </div>
+            
+            <div class="swipe-hint">
+                <i class="fas fa-arrows-alt-h"></i> Scroll untuk melihat semua metode
+            </div>
+        </section>
+
+        <!-- QRIS Section -->
+        <section id="qris" class="qris-section">
+            <h2 class="qris-title">
+                <i class="fas fa-qrcode"></i> QRIS PAYMENT
+            </h2>
+            
+            <div class="qris-container">
+                <img src="https://img1.pixhost.to/images/10701/668975962_ipungg-md.jpg" 
+                     alt="QRIS ACHA MARKET" 
+                     class="qris-image"
+                     onerror="this.onerror=null; this.src='https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=ACHAMARKET-PAYMENT-MOBILE'">
+            </div>
+            
+            <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 1rem; font-size: 0.9rem;">
+                Scan untuk pembayaran instan
+            </p>
+            
+            <div class="card-actions">
+                <button class="mobile-btn btn-secondary touch-feedback" onclick="copyText('https://img1.pixhost.to/images/10701/668975962_ipungg-md.jpg')">
+                    <i class="fas fa-link"></i> Copy Link
+                </button>
+                <button class="mobile-btn btn-primary touch-feedback" onclick="saveQR()">
+                    <i class="fas fa-download"></i> Save QR
+                </button>
+            </div>
+        </section>
+
+        <!-- Important Notice -->
+        <section id="notice" class="notice-section">
+            <div class="notice-header">
+                <div class="notice-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <h3 class="notice-title">PENTING!</h3>
+            </div>
+            
+            <p class="notice-text">
+                <span class="highlight">SELALU SERTAKAN BUKTI TRANSAKSI</span> 
+                (screenshot/foto) setelah transfer agar terhindar dari penipuan.
+            </p>
+            
+            <p class="notice-text" style="margin-top: 1rem;">
+                Kirim bukti ke admin ACHA MARKET untuk konfirmasi cepat.
+            </p>
+            
+            <button class="mobile-btn btn-primary touch-feedback" style="margin-top: 1rem; width: 100%;" onclick="remindMe()">
+                <i class="fas fa-bell"></i> Ingatkan Saya
+            </button>
+        </section>
+    </main>
+
+    <!-- Mobile Footer Navigation -->
+    <footer class="mobile-footer">
+        <div class="footer-nav">
+            <a href="#payments" class="footer-nav-item active">
+                <div class="footer-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <div>Home</div>
+            </a>
+            
+            <a href="#qris" class="footer-nav-item">
+                <div class="footer-icon">
+                    <i class="fas fa-qrcode"></i>
+                </div>
+                <div>QRIS</div>
+            </a>
+            
+            <a href="#notice" class="footer-nav-item">
+                <div class="footer-icon">
+                    <i class="fas fa-exclamation"></i>
+                </div>
+                <div>Notice</div>
+            </a>
+            
+            <div class="footer-nav-item" onclick="showMenu()">
+                <div class="footer-icon">
+                    <i class="fas fa-ellipsis-h"></i>
+                </div>
+                <div>More</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Toast -->
+    <div class="mobile-toast" id="mobileToast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage">Berhasil disalin!</span>
+    </div>
+
+    <script>
+        // Mobile-Specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize mobile features
+            initMobileUI();
+            
+            // Add touch feedback to all buttons
+            const buttons = document.querySelectorAll('.touch-feedback, .mobile-btn');
+            buttons.forEach(btn => {
+                btn.addEventListener('touchstart', function() {
+                    this.style.opacity = '0.7';
+                });
+                
+                btn.addEventListener('touchend', function() {
+                    this.style.opacity = '1';
+                });
+            });
+            
+            // Handle swipe gestures
+            let startX, startY;
+            document.addEventListener('touchstart', function(e) {
+                startX = e.touches[0].clientX;
+                startY = e.touches[0].clientY;
+            });
+            
+            document.addEventListener('touchend', function(e) {
+                if (!startX || !startY) return;
+                
+                let endX = e.changedTouches[0].clientX;
+                let endY = e.changedTouches[0].clientY;
+                
+                let diffX = endX - startX;
+                let diffY = endY - startY;
+                
+                // Horizontal swipe detection
+                if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+                    if (diffX > 0) {
+                        // Swipe right - show menu
+                        showMenu();
+                    } else {
+                        // Swipe left - close menu
+                        closeNav();
+                    }
+                }
+            });
+        });
+        
+        // Mobile UI Functions
+        function initMobileUI() {
+            // Set viewport height for mobile browsers
+            function setVH() {
+                let vh = window.innerHeight * 0.01;
+                document.documentElement.style.setProperty('--vh', `${vh}px`);
+            }
+            
+            setVH();
+            window.addEventListener('resize', setVH);
+            
+            // Vibrate on success (if supported)
+            if ("vibrate" in navigator) {
+                window.vibrate = function(pattern = 50) {
+                    navigator.vibrate(pattern);
+                };
+            }
+        }
+        
+        // Menu Functions
+        function showMenu() {
+            document.getElementById('mobileNav').classList.add('active');
+            if (window.vibrate) vibrate(30);
+        }
+        
+        function closeNav() {
+            document.getElementById('mobileNav').classList.remove('active');
+        }
+        
+        // Event Listeners
+        document.getElementById('menuBtn').addEventListener('click', showMenu);
+        document.getElementById('closeNav').addEventListener('click', closeNav);
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const nav = document.getElementById('mobileNav');
+            const menuBtn = document.getElementById('menuBtn');
+            
+            if (nav.classList.contains('active') && 
+                !nav.contains(e.target) && 
+                !menuBtn.contains(e.target)) {
+                closeNav();
+            }
+        });
+        
+        // Copy Text Function
+        function copyText(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showToast('✅ Berhasil disalin!');
+                if (window.vibrate) vibrate(50);
+            }).catch(err => {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                showToast('✅ Disalin!');
+            });
+        }
+        
+        // Share Text Function
+        function shareText(text) {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'ACHA MARKET Payment',
+                    text: text,
+                    url: window.location.href
+                }).then(() => {
+                    showToast('✅ Berhasil dibagikan!');
+                }).catch(err => {
+                    copyText(text);
+                });
+            } else {
+                copyText(text);
+                showToast('✅ Disalin, bagikan manual!');
+            }
+        }
+        
+        // Copy All Payment Info
+        function copyAllInfo() {
+            const allInfo = 
+                `💳 ACHA MARKET PAYMENT INFO\n` +
+                `DANA: 083171156990 (Su*****)\n` +
+                `GOPAY: 085789458403 (N*** ***)\n` +
+                `QRIS: https://img1.pixhost.to/images/10701/668975962_ipungg-md.jpg\n\n` +
+                `⚠️ Jangan lupa sertakan bukti transaksi!`;
+            
+            copyText(allInfo);
+            closeNav();
+        }
+        
+        // Share App
+        function shareApp() {
+            const shareData = {
+                title: 'ALLPAYMENT - ACHA MARKET',
+                text: 'Cek payment gateway premium ACHA MARKET!',
+                url: window.location.href
+            };
+            
+            if (navigator.share) {
+                navigator.share(shareData);
+            } else {
+                copyText(window.location.href);
+                showToast('✅ Link disalin, bagikan manual!');
+            }
+            closeNav();
+        }
+        
+        // Save QR Function
+        function saveQR() {
+            showToast('🔄 Menyimpan QR Code...');
+            // In real app, this would download the QR image
+            setTimeout(() => {
+                showToast('✅ QR Code tersimpan di galeri!');
+            }, 1000);
+        }
+        
+        // Remind Me Function
+        function remindMe() {
+            if ("Notification" in window && Notification.permission === "granted") {
+                new Notification("ACHA MARKET Reminder", {
+                    body: "Jangan lupa sertakan bukti transaksi!",
+                    icon: "https://img.icons8.com/color/96/000000/money-bag.png"
+                });
+                showToast('🔔 Pengingat diaktifkan!');
+            } else if (Notification.permission !== "denied") {
+                Notification.requestPermission().then(permission => {
+                    if (permission === "granted") {
+                        new Notification("ACHA MARKET Reminder", {
+                            body: "Jangan lupa sertakan bukti transaksi!",
+                            icon: "https://img.icons8.com/color/96/000000/money-bag.png"
+                        });
+                        showToast('🔔 Pengingat diaktifkan!');
+                    }
+                });
+            }
+        }
+        
+        // FUNGSI BARU: Pergi ke Product Panel Acha
+        function goToProductPanel() {
+            showToast('🚀 Menuju Product Panel...');
+            closeNav();
+            
+            // Buka di tab baru dengan animasi
+            setTimeout(() => {
+                window.open('https://acha-panel-pterodotacyl.vercel.app/', '_blank');
+                showToast('✅ Product Panel dibuka!');
+            }, 500);
+            
+            if (window.vibrate) vibrate(100);
+        }
+        
+        // FUNGSI BARU: Pergi ke Digital Products
+        function goToDigitalProducts() {
+            showToast('📦 Menuju Digital Products...');
+            closeNav();
+            
+            // Buka di tab baru dengan animasi
+            setTimeout(() => {
+                window.open('https://acha-product-digital.vercel.app/', '_blank');
+                showToast('✅ Digital Products dibuka!');
+            }, 500);
+            
+            if (window.vibrate) vibrate(100);
+        }
+        
+        // Toast Notification
+        function showToast(message) {
+            const toast = document.getElementById('mobileToast');
+            const toastMessage = document.getElementById('toastMessage');
+            
+            toastMessage.textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+        
+        // Handle Back Button
+        let backButtonPressed = 0;
+        window.addEventListener('popstate', function(e) {
+            if (document.getElementById('mobileNav').classList.contains('active')) {
+                closeNav();
+                e.preventDefault();
+            }
+        });
+        
+        // Prevent zoom on double tap
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function(e) {
+            const now = (new Date()).getTime();
+            if (now - lastTouchEnd <= 300) {
+                e.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+        
+        // Footer Navigation Active State
+        const footerItems = document.querySelectorAll('.footer-nav-item');
+        footerItems.forEach(item => {
+            item.addEventListener('click', function() {
+                footerItems.forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+        
+        // Auto-hide address bar on mobile
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                window.scrollTo(0, 1);
+            }, 0);
+        });
+    </script>
+</body>
+</html>
